@@ -105,15 +105,29 @@ formulario?.addEventListener('submit', async (event) => {
 
   const componentesExistentes = await repositorio.obtenerTodos()
 
-  const erroresArquitectura = validarPatron(
-    resultado.datos,
-    componentesExistentes
-  )
+  try {
 
-  if (erroresArquitectura.length > 0) {
+    const erroresArquitectura = validarPatron(
+      resultado.datos,
+      componentesExistentes
+    )
+
+    if (erroresArquitectura.length > 0) {
+
+      if (mensaje) {
+        mensaje.textContent = erroresArquitectura.join(' | ')
+        mensaje.className = 'mensaje error'
+      }
+
+      return
+    }
+
+  } catch (error) {
+
+    console.error(error)
 
     if (mensaje) {
-      mensaje.textContent = erroresArquitectura.join(' | ')
+      mensaje.textContent = 'Error al validar arquitectura'
       mensaje.className = 'mensaje error'
     }
 
