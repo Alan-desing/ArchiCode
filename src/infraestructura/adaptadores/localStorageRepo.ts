@@ -24,4 +24,18 @@ export class LocalStorageRepo implements RepositorioComponentes {
       JSON.stringify(componentes)
     )
   }
+
+  async eliminar(id: string): Promise<void> {
+
+    const componentes = await this.obtenerTodos()
+
+    const actualizados = componentes.filter(
+        componente => componente.id !== id
+    )
+
+    localStorage.setItem(
+        this.STORAGE_KEY,
+        JSON.stringify(actualizados)
+    )
+  }
 }
