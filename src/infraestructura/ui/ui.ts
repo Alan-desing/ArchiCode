@@ -9,7 +9,7 @@ export function crearFormulario(): string {
         <input
           type="text"
           id="nombre"
-          placeholder="Nombre del componente"
+          placeholder="Nombre del componente (mínimo 3 caracteres)"
         />
 
         <select id="tipo">
@@ -22,7 +22,7 @@ export function crearFormulario(): string {
 
         <textarea
           id="descripcion"
-          placeholder="Descripción"
+          placeholder="Descripción del componente (mínimo 10 caracteres)"
         ></textarea>
 
         <input
@@ -30,6 +30,10 @@ export function crearFormulario(): string {
         id="dependencias"
         placeholder="Dependencias separadas por coma"
         />
+
+        <small class="info">
+            Las dependencias deben escribirse exactamente igual al nombre del componente existente.
+        </small>
 
         <button type="submit">
           Agregar componente

@@ -130,3 +130,8 @@ form button {
     padding: 1rem;
   }
 }
+
+.info {
+  color: #bdbdbd;
+  font-size: 0.9rem;
+}
