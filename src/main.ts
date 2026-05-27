@@ -101,10 +101,12 @@ formulario?.addEventListener('submit', async (event) => {
           repositorio
         )
 
+  if (resultado.exito && resultado.datos) {
+
   const componentesExistentes = await repositorio.obtenerTodos()
 
   const erroresArquitectura = validarPatron(
-    resultado.datos!,
+    resultado.datos,
     componentesExistentes
   )
 
@@ -112,10 +114,12 @@ formulario?.addEventListener('submit', async (event) => {
 
     if (mensaje) {
       mensaje.textContent = erroresArquitectura.join(' | ')
+      mensaje.className = 'mensaje error'
     }
 
     return
   }
+}
 
   if (!resultado.exito) {
     if (mensaje) {
